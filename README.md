@@ -1,0 +1,1 @@
+"# cordova-memory-checker" 
