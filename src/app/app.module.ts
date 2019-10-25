@@ -8,12 +8,16 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {AppRate} from "@ionic-native/app-rate";
+import {AppCenterCrashes} from "@ionic-native/app-center-crashes";
+import {RamCheker} from "../pages/ram-checker/ram-cheker";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    RamCheker
   ],
   imports: [
     BrowserModule,
@@ -23,11 +27,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    RamCheker
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AppRate,
+    AppCenterCrashes,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
