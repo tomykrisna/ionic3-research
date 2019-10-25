@@ -12,6 +12,8 @@ import {AppRate} from "@ionic-native/app-rate";
 import {AppCenterCrashes} from "@ionic-native/app-center-crashes";
 import {RamCheker} from "../pages/ram-checker/ram-cheker";
 import {Rate} from "../pages/rate/rate";
+import {FormControlModule} from "../components/form-control-component/form-control.module";
+import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import {Rate} from "../pages/rate/rate";
     HomePage,
     ListPage,
     RamCheker,
-    Rate
+    Rate,
+    DynamicForm
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    FormControlModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,7 +35,8 @@ import {Rate} from "../pages/rate/rate";
     HomePage,
     ListPage,
     RamCheker,
-    Rate
+    Rate,
+    DynamicForm
   ],
   providers: [
     StatusBar,

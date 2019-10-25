@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dynamic Form</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    this is a dynamic form with form validation , this form is build by json
+  </p>
+  <div>
+
+    <form *ngIf="isHaveData" [formGroup]="fg">
+      <div class="koinworks" formArrayName="dynamicForms">
+        <div *ngFor="let item of dynamicForms.controls; index as i">
+          <ion-list>
+            <div *ngIf="formSubmissionData[i].typeField == 'text'">
+              <ion-item [hidden]="formSubmissionData[i].isHide">
+                <ion-label stacked text-wrap>{{ formSubmissionData[i].label}}
+                  <span class="required-input" *ngIf="formSubmissionData[i].isRequired">*</span>
+                </ion-label>
+                <ion-input [disabled]="formSubmissionData[i].readOnly" type="text" tyle="padding-right: 1em !important"
+                           [formControlName]="i"></ion-input>
+              </ion-item>
+            </div>
+            <div [formControlStyle]="fg" *ngIf="formSubmissionData[i].typeField == 'date'">
+              <ion-item #hasMessage [hidden]="formSubmissionData[i].isHide">
+                <ion-label stacked text-wrap>{{ formSubmissionData[i].label}}
+                  <span class="required-input" *ngIf="formSubmissionData[i].isRequired">*</span>
+                </ion-label>
+                <ion-datetime [disabled]="formSubmissionData[i].readOnly" class="input-cal-icon"
+                              displayFormat="DD MMM YYYY" [formControlName]="i"></ion-datetime>
+              </ion-item>
+            </div>
+            <div [formControlStyle]="fg" *ngIf="formSubmissionData[i].typeField == 'number'">
+              <ion-item #hasMessage [hidden]="formSubmissionData[i].isHide">
+                <ion-label stacked text-wrap>{{ formSubmissionData[i].label}}
+                  <span class="required-input" *ngIf="formSubmissionData[i].isRequired">*</span>
+                </ion-label>
+                <ion-input [disabled]="formSubmissionData[i].readOnly" type="text" tyle="padding-right: 1em !important"
+                           [formControlName]="i"></ion-input>
+              </ion-item>
+            </div>
+            <div [formControlStyle]="fg" *ngIf="formSubmissionData[i].typeField == 'email'">
+              <ion-item #hasMessage [hidden]="formSubmissionData[i].isHide">
+                <ion-label stacked text-wrap>{{ formSubmissionData[i].label}}
+                  <span class="required-input" *ngIf="formSubmissionData[i].isRequired">*</span>
+                </ion-label>
+                <ion-input [disabled]="formSubmissionData[i].readOnly" type="text" id="{{i}}"
+                           tyle="padding-right: 1em !important"
+                           [formControlName]="i"></ion-input>
+              </ion-item>
+            </div>
+            <div *ngIf="formSubmissionData[i].typeField == 'dropdown'">
+              <ion-item [hidden]="formSubmissionData[i].isHide">
+                <ion-label stacked>{{ formSubmissionData[i].label}}
+                  <span class="required-input" *ngIf="formSubmissionData[i].isRequired">*</span>
+                </ion-label>
+                <ion-select [disabled]="formSubmissionData[i].readOnly" [formControlName]="i">
+                  <ion-option *ngFor="let additional of formSubmissionData[i].additionalDetail"
+                              [value]="additional.value">{{additional.text}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </div>
+
+            <div class="upload-box" fxLayout="column" *ngIf="formSubmissionData[i].typeField == 'file'">
+              <div class="label" fxLayout="row" fxLayoutAlign="space-between start">
+                <ion-item [hidden]="formSubmissionData[i].isHide">
+                  <ion-label>{{ formSubmissionData[i].label}}<span
+                    class="red" *ngIf="formSubmissionData[i].isRequired">*</span></ion-label>
+                  <button class="upload-btn" round color="primary" ion-button
+                          item-end>{{'Upload'}}</button>
+                  <!--                  <button class="upload-btn" round color="primary" (click)="uploadFIle(i)" ion-button-->
+                  <ion-input type="text" [hidden]="true" [formControlName]="i" alt="Submit" width="100">
+
+                  </ion-input>
+                </ion-item>
+              </div>
+              <div *ngIf="fg.value.dynamicForms[i] !== ''" class="img-box" fxLayoutAlign="center start">
+                <img src="{{fg.value.dynamicForms[i]}}">
+                <!--                <img src="{{empphotopath + fg.value.dynamicForms[i]}}">-->
+                <ion-icon name="close"></ion-icon>
+                <!--                <ion-icon (click)="delete(i)" name="close"></ion-icon>-->
+              </div>
+            </div>
+          </ion-list>
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="btn-footer-action-page full-btn">
+      <ul align="center">
+        <button class="btn-tag btn-footer-action-page" color="primary" ion-button full
+                [disabled]="!fg.valid" (click)="submit()">{{'Submit'}}</button>
+        <!--        <button class="btn-tag btn-footer-action-page" color="primary" ion-button full [disabled]="!fg.valid" (click)="setAdditionalSelect()">{{'Next' | translate}}</button>-->
+      </ul>
+    </div>
+  </ion-toolbar>
+</ion-footer>

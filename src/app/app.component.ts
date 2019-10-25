@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {RamCheker} from "../pages/ram-checker/ram-cheker";
 import {Rate} from "../pages/rate/rate";
+import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Ram Checker', component: RamCheker },
       { title: 'Rate Apps', component: Rate },
+      { title: 'Dynamic Form', component: DynamicForm },
       { title: 'List', component: ListPage }
     ];
 
