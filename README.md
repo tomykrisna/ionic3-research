@@ -1,6 +1,6 @@
-#research ionic 3
+# research ionic 3
 
-##fitur :
+## fitur :
 
 
 ### 1. memory checker
