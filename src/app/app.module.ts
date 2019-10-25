@@ -11,13 +11,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {AppRate} from "@ionic-native/app-rate";
 import {AppCenterCrashes} from "@ionic-native/app-center-crashes";
 import {RamCheker} from "../pages/ram-checker/ram-cheker";
+import {Rate} from "../pages/rate/rate";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    RamCheker
+    RamCheker,
+    Rate
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {RamCheker} from "../pages/ram-checker/ram-cheker";
     MyApp,
     HomePage,
     ListPage,
-    RamCheker
+    RamCheker,
+    Rate
   ],
   providers: [
     StatusBar,

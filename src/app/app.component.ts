@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {RamCheker} from "../pages/ram-checker/ram-cheker";
+import {Rate} from "../pages/rate/rate";
 
 @Component({
   templateUrl: 'app.html'
@@ -24,6 +25,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Ram Checker', component: RamCheker },
+      { title: 'Rate Apps', component: Rate },
       { title: 'List', component: ListPage }
     ];
 
