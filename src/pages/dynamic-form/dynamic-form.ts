@@ -16,6 +16,23 @@ export class DynamicForm {
   modelAdditional: any = {};
 
   constructor(public alertCtrl: AlertController) {
+
+  }
+
+  //get dynamic Form
+  get dynamicForms(): FormArray {
+    return this.fg.get('dynamicForms') as FormArray;
+  }
+
+  ngOnInit() {
+    this.formAndData()
+  }
+
+  ionViewDidLoad() {
+
+  }
+
+  formAndData() {
     this.fg = new FormGroup({
       dynamicForms: new FormArray([])
     })
@@ -106,16 +123,10 @@ export class DynamicForm {
         "additionalDetail": []
       }, // date required
     ]
-    this.ionViewDidLoad();
+    this.setArrayForm()
   }
 
-  //get dynamic Form
-  get dynamicForms(): FormArray {
-    return this.fg.get('dynamicForms') as FormArray;
-  }
-
-
-  ionViewDidLoad() {
+  setArrayForm() {
     console.log('viewDidLoad')
     this.fg = new FormGroup({
       dynamicForms: new FormArray([

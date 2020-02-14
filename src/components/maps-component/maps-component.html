@@ -1,0 +1,8 @@
+<input placeholder="Search Location" type="text" class="searchLocation" id="searchLocation" (focus)="searchLocation()"
+       autofocus>
+<div #map id="map"></div>
+<p *ngIf="addressDetail" autofocus>
+  Location Address: {{addressDetail}}
+</p>
+<button ion-button (click)="emitData()" class="setLocation" id="setLocation"> Select Location</button>
+

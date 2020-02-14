@@ -15,4 +15,25 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div ion-row>
+    <button ion-button (click)="getGDCamera()">Camera</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDCameraSwap()">Camera Swap</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDGeolocation()">Location</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDGeolocationRadius()">Location Radius</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDGeolocationCamera()">Location Camera</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDGeolocationCameraSwap()">Location Camera Swap</button>
+  </div>
+  <div ion-row>
+    <button ion-button (click)="getGDGeolocationRadiusCameraSwap()">Location Radius Camera Swap</button>
+  </div>
 </ion-content>

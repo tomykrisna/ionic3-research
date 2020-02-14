@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Open Maps</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <maps-component
+    name="maps" ngDefaultControl
+    [location]="location"
+    [mode]="'picklocation'"
+    [radius]="true"
+    [drawMap]="false"
+    (data)="dataLocation($event)"
+    [polygon]="polygon"
+    [(ngModel)]="dataMap">
+  </maps-component>
+
+<!--  <button ion-button (click)="dataLocation()">button</button>-->
+</ion-content>

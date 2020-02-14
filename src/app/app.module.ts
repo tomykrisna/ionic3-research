@@ -14,6 +14,11 @@ import {RamCheker} from "../pages/ram-checker/ram-cheker";
 import {Rate} from "../pages/rate/rate";
 import {FormControlModule} from "../components/form-control-component/form-control.module";
 import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
+import {WalkthroughPage} from "../pages/walkthrough/walkthrough-page.component";
+import {ComponentPage} from "../pages/component/component";
+import {MapsPage} from "../pages/maps/maps-page.component";
+import {MapsComponent} from "../components/maps-component/maps-component";
+import {MapsComponentModule} from "../components/maps-component/maps-component.module";
 
 @NgModule({
   declarations: [
@@ -22,12 +27,16 @@ import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
     ListPage,
     RamCheker,
     Rate,
-    DynamicForm
+    DynamicForm,
+    WalkthroughPage,
+    ComponentPage,
+    MapsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormControlModule,
+    MapsComponentModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,7 +45,10 @@ import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
     ListPage,
     RamCheker,
     Rate,
-    DynamicForm
+    DynamicForm,
+    WalkthroughPage,
+    ComponentPage,
+    MapsPage
   ],
   providers: [
     StatusBar,
