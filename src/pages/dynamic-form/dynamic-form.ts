@@ -1,21 +1,25 @@
-import {Component} from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {FormValidationService} from "../../providers/form-control/validation.service";
+import {FormValidationService} from "../../app/providers/form-control/validation.service";
 import {AlertController} from "ionic-angular";
-
+import {NavController} from "ionic-angular";
 @Component({
   selector: 'dynamic-form',
   templateUrl: 'dynamic-form.html'
 })
 
 export class DynamicForm {
+
+
   fg: FormGroup;
   isHaveData: boolean = false;
   formSubmissionData: any = [];
   dataDummy: any;
   modelAdditional: any = {};
 
-  constructor(public alertCtrl: AlertController) {
+  constructor(
+    public alertCtrl: AlertController,
+    private nav: NavController) {
 
   }
 
@@ -178,6 +182,11 @@ export class DynamicForm {
     setTimeout(() => {
       this.showAlert(this.modelAdditional)
     },)
+  }
+
+
+  pushCurrent(){
+    this.nav.push(DynamicForm)
   }
 
   showAlert(data) {

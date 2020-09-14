@@ -17,8 +17,10 @@ import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
 import {WalkthroughPage} from "../pages/walkthrough/walkthrough-page.component";
 import {ComponentPage} from "../pages/component/component";
 import {MapsPage} from "../pages/maps/maps-page.component";
-import {MapsComponent} from "../components/maps-component/maps-component";
 import {MapsComponentModule} from "../components/maps-component/maps-component.module";
+import {ServiceModule} from "./service/service.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptors} from "./providers/auth.interceptors";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import {MapsComponentModule} from "../components/maps-component/maps-component.m
     IonicModule.forRoot(MyApp),
     FormControlModule,
     MapsComponentModule,
+    ServiceModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +58,12 @@ import {MapsComponentModule} from "../components/maps-component/maps-component.m
     SplashScreen,
     AppRate,
     AppCenterCrashes,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptors,
+      multi: true
+    }
   ]
 })
 export class AppModule {}

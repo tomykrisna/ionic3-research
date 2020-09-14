@@ -54,6 +54,8 @@ export class MapsComponent {
 
   //init Map
   initMap(lat: any, lng: any) {
+    var directionsService = new google.maps.DirectionsService;
+    var directionsRenderer = new google.maps.DirectionsRenderer;
     let coords = new google.maps.LatLng(lat, lng);
     let mapOptions = {
       center: coords,
@@ -63,12 +65,41 @@ export class MapsComponent {
     }
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
     this.pickLocation(lat, lng)
+    this.calculateAndDisplayRoute(directionsService, directionsRenderer);
     if (this.drawMap) {
       this.drawMapInit();
     }
     if (this.polygon) {
       this.setPolygon();
     }
+  }
+
+
+  calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    var start = '-6.284358600000001 106.7255776';
+    var end = '-6.275603149189562 106.73789493809001'
+    var request = {
+      origin:start,
+      destination:end,
+      waypoints:[{
+        location: '-6.278431658525662 106.72221707801819',
+        stopover: true
+      }],
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsRenderer.setDirections(response);
+        var myRoute = response.routes[0];
+        var txtDir = '';
+        for (var i=0; i<myRoute.legs[0].steps.length; i++) {
+          txtDir += myRoute.legs[0].steps[i].instructions+"<br />";
+        }
+        document.getElementById('directions').innerHTML = txtDir;
+      }
+    });
+    directionsRenderer.setMap(this.map)
   }
 
   setPolygon() {
