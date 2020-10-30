@@ -11,6 +11,7 @@ import {DynamicForm} from "../pages/dynamic-form/dynamic-form";
 import {WalkthroughPage} from "../pages/walkthrough/walkthrough-page.component";
 import {ComponentPage} from "../pages/component/component";
 import {MapsPage} from "../pages/maps/maps-page.component";
+import {ServiceComponent} from "../pages/service/service.component";
 
 @Component({
   templateUrl: 'app.html'
@@ -34,7 +35,8 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Walkthrough', component: WalkthroughPage },
       { title: 'Component', component: ComponentPage },
-      { title: 'Maps', component: MapsPage }
+      { title: 'Maps', component: MapsPage },
+      { title: 'Service', component: ServiceComponent }
     ];
 
   }

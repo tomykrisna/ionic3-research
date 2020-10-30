@@ -21,6 +21,7 @@ import {MapsComponentModule} from "../components/maps-component/maps-component.m
 import {ServiceModule} from "./service/service.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptors} from "./providers/auth.interceptors";
+import {ServiceComponent} from "../pages/service/service.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {AuthInterceptors} from "./providers/auth.interceptors";
     DynamicForm,
     WalkthroughPage,
     ComponentPage,
-    MapsPage
+    MapsPage,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import {AuthInterceptors} from "./providers/auth.interceptors";
     DynamicForm,
     WalkthroughPage,
     ComponentPage,
-    MapsPage
+    MapsPage,
+    ServiceComponent
   ],
   providers: [
     StatusBar,
